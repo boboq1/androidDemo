@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Shiyan5</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="nickname">昵称：</string>
+    <string name="message">请输入您要发送的信息</string>
+    <string name="people">输入您要发送的对象，默认为群发</string>
+</resources>
