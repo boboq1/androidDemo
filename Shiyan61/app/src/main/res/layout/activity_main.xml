@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/username"
+        android:text="@string/login_name"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="@string/prompt_login"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/password"
+        android:text="@string/password"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_alignLeft="@id/username"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/prompt_password"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_toLeftOf="@id/login"
+        android:text="@string/register"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_alignRight="@+id/password"
+        android:gravity="center_horizontal"
+        android:text="@string/login"
+        android:textSize="20sp" />
+
+</RelativeLayout>

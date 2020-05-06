@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Shiyan6.1</string>
+    <string name="nickname">昵称:</string>
+    <string name="prompt_nick">请输入昵称</string>
+    <string name="account">账号:</string>
+    <string name="prompt_acount">请输入账号</string>
+    <string name="password">密码:</string>
+    <string name="prompt_password">请输入密码</string>
+    <string name="register">注册</string>
+    <string name="prompt_login">请输入用户名</string>
+    <string name="login_name">账号:</string>
+    <string name="login">登录</string>
+    <string name="prompt_search">请输入搜索关键字</string>
+    <string name="search">搜索</string>
+</resources>
