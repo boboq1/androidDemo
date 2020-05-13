@@ -26,11 +26,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void handleMessage(@NonNull Message msg) {
             if (msg.what == 0x123){
-                Log.e("response3",response+"");
+                /*登录是否成功*/
                 if (Boolean.parseBoolean(response)){
                     Intent intent = new Intent(MainActivity.this,NewsActivity.class);
                     startActivity(intent);
                 }else {
+                    //登录失败提示信息
                     prompt();
                 }
             }
@@ -40,33 +41,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         register = findViewById(R.id.regist);
         login = findViewById(R.id.login);
+
         Intent newIntent = getIntent();
+        /*获得并设置用户名*/
         String  registName =  newIntent.getStringExtra("username");
         if (registName != null || registName == ""){
             username.setText(registName);
         }
+        //注册事件
         register.setOnClickListener(view->{
             Intent intent = new Intent(this,RegisterActivity.class);
             startActivity(intent);
         });
+        //登录事件
         login.setOnClickListener(view -> {
-            user = username.getText().toString();
+            user = username.getText().toString();//获取用户名
+            //获取并加密用户名
             pass = com.zzu.hechenbo.shiyan61.SHA256.Encrypt(password.getText().toString(),"");
             new Thread(() -> {
+                //请求并返回登录信息
                 response = GetUtil.sendGet(
-                        "http://172.20.10.3:8888/UserServlet",
+                        "http://192.168.62.1:8888/UserServlet",
                         "action=Login"+"&username=" + user + "&password=" + pass);
-                response = response.substring(4,8);
-                Log.e("response",response+"");
+                if (response == null){
+
+                }
+                response = response.length() != 4 ? response.substring(4,8) : response;
                 handler.sendEmptyMessage(0x123);
             }).start();
         });
     }
+    //登录提示消息
     private void prompt(){
-        Toast.makeText(this,"你输入的用户名或密码不正确,请重新输入或注册",Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"您输入的用户名或密码不正确,请重新输入或注册",Toast.LENGTH_LONG).show();
     }
 }
